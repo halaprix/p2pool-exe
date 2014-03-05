@@ -230,23 +230,23 @@ nets = dict(
         DUST_THRESHOLD=0.03e8,
     ),
 
-    gpucoin=math.Object(
+    execoin=math.Object(
         P2P_PREFIX='fabfb5da'.decode('hex'),
-        P2P_PORT=5880,
-        ADDRESS_VERSION=38,
-        RPC_PORT=5879,
+        P2P_PORT=9989,
+        ADDRESS_VERSION=33,
+        RPC_PORT=9987,
         RPC_CHECK=defer.inlineCallbacks(lambda bitcoind: defer.returnValue(
-            'gpucoinaddress' in (yield bitcoind.rpc_help()) and
+            'execoinaddress' in (yield bitcoind.rpc_help()) and
             not (yield bitcoind.rpc_getinfo())['testnet']
         )),
-        SUBSIDY_FUNC=lambda height: 20000*100000000 >> (height + 1)//250000,
+        SUBSIDY_FUNC=lambda height: 50*100000000 >> (height + 1)//840000,
         POW_FUNC=lambda data: pack.IntType(256).unpack(__import__('vtc_scrypt').getPoWHash(data)),
-        BLOCK_PERIOD=60, # s
-        SYMBOL='GPUC',
-        CONF_FILE_FUNC=lambda: os.path.join(os.path.join(os.environ['APPDATA'], 'Gpucoin') if platform.system() == 'Windows' else os.path.expanduser('~/Library/Application Support/Gpucoin/') if platform.system() == 'Darwin' else os.path.expanduser('~/.gpucoin'), 'gpucoin.conf'),
-        BLOCK_EXPLORER_URL_PREFIX='http://explorer.gpucoin.net/block/',
-        ADDRESS_EXPLORER_URL_PREFIX='http://explorer.gpucoin.net/address/',
-        TX_EXPLORER_URL_PREFIX='http://explorer.gpucoin.net/tx/',
+        BLOCK_PERIOD=45, # s
+        SYMBOL='EXE',
+        CONF_FILE_FUNC=lambda: os.path.join(os.path.join(os.environ['APPDATA'], 'execoin') if platform.system() == 'Windows' else os.path.expanduser('~/Library/Application Support/execoin/') if platform.system() == 'Darwin' else os.path.expanduser('~/.execoin'), 'execoin.conf'),
+        BLOCK_EXPLORER_URL_PREFIX='explorer.execoin.net/block/',
+        ADDRESS_EXPLORER_URL_PREFIX='explorer.execoin.net/address/',
+        TX_EXPLORER_URL_PREFIX='explorer.execoin.net/tx/',
         SANE_TARGET_RANGE=(2**256//1000000000 - 1, 2**256//1000 - 1),
         DUMB_SCRYPT_DIFF=2**16,
         DUST_THRESHOLD=0.03e8,
