@@ -244,9 +244,9 @@ nets = dict(
         BLOCK_PERIOD=45, # s
         SYMBOL='EXE',
         CONF_FILE_FUNC=lambda: os.path.join(os.path.join(os.environ['APPDATA'], 'execoin') if platform.system() == 'Windows' else os.path.expanduser('~/Library/Application Support/execoin/') if platform.system() == 'Darwin' else os.path.expanduser('~/.execoin'), 'execoin.conf'),
-        BLOCK_EXPLORER_URL_PREFIX='explorer.execoin.net/block/',
-        ADDRESS_EXPLORER_URL_PREFIX='explorer.execoin.net/address/',
-        TX_EXPLORER_URL_PREFIX='explorer.execoin.net/tx/',
+        BLOCK_EXPLORER_URL_PREFIX='http://explorer.execoin.net/block/',
+        ADDRESS_EXPLORER_URL_PREFIX='http://explorer.execoin.net/address/',
+        TX_EXPLORER_URL_PREFIX='http://explorer.execoin.net/tx/',
         SANE_TARGET_RANGE=(2**256//1000000000 - 1, 2**256//1000 - 1),
         DUMB_SCRYPT_DIFF=2**16,
         DUST_THRESHOLD=0.03e8,
