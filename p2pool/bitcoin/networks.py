@@ -234,7 +234,7 @@ nets = dict(
         P2P_PREFIX='fabfb5da'.decode('hex'),
         P2P_PORT=9989,
         ADDRESS_VERSION=33,
-        RPC_PORT=9987,
+        RPC_PORT=9988,
         RPC_CHECK=defer.inlineCallbacks(lambda bitcoind: defer.returnValue(
             'execoinaddress' in (yield bitcoind.rpc_help()) and
             not (yield bitcoind.rpc_getinfo())['testnet']
