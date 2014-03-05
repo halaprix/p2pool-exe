@@ -142,22 +142,22 @@ nets = dict(
         VERSION_CHECK=lambda v: True,
     ),
 
-    gpucoin=math.Object(
-        PARENT=networks.nets['gpucoin'],
+    execoin=math.Object(
+        PARENT=networks.nets['execoin'],
         SHARE_PERIOD=10, # seconds
         CHAIN_LENGTH=24*60*60//10, # shares
         REAL_CHAIN_LENGTH=24*60*60//10, # shares
         TARGET_LOOKBEHIND=200, # shares
         SPREAD=50, # blocks
-        IDENTIFIER='a06a81c824bab259'.decode('hex'),
-        PREFIX='7c3614a6abe3f884'.decode('hex'),
-        P2P_PORT=9451,
+        IDENTIFIER='657865636f696e65'.decode('hex'),
+        PREFIX='65657865636f696e'.decode('hex'),
+        P2P_PORT=9986,
         MIN_TARGET=4,
         MAX_TARGET=2**256//2**20 - 1,
         PERSIST=False,
-        WORKER_PORT=9404,
-        BOOTSTRAP_ADDRS='gpu.qemulab.com gpu-usa-west.crewdoginvesting.com gpu-asia.crewdoginvesting.com'.split(' '),
-        ANNOUNCE_CHANNEL='#p2pool-gpuc',
+        WORKER_PORT=9988,
+        BOOTSTRAP_ADDRS='forre.st vps.forre.st liteco.in freebtc.eu'.split(' '),
+        ANNOUNCE_CHANNEL='#p2pool-exe',
         VERSION_CHECK=lambda v: True,
     ),
 
